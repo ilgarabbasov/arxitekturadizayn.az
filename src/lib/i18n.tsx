@@ -330,6 +330,11 @@ const LanguageContext = createContext<LanguageContextType>({
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Language>('az');
+
+  // Set lang attribute on <html> for proper CSS text-transform (i → İ in Azerbaijani/Turkish)
+  const langMap: Record<Language, string> = { az: 'az', ru: 'ru', en: 'en' };
+  document.documentElement.lang = langMap[lang];
+
   return (
     <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] as unknown as Translations }}>
       {children}
