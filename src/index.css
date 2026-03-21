@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,40 +8,29 @@
   :root {
     --background: 30 14% 95%;
     --foreground: 0 0% 10%;
-
     --card: 30 14% 95%;
     --card-foreground: 0 0% 10%;
-
     --popover: 30 14% 95%;
     --popover-foreground: 0 0% 10%;
-
     --primary: 0 0% 10%;
     --primary-foreground: 30 14% 95%;
-
     --secondary: 0 0% 42%;
     --secondary-foreground: 30 14% 95%;
-
     --muted: 30 8% 88%;
     --muted-foreground: 0 0% 42%;
-
     --accent: 42 52% 54%;
     --accent-foreground: 0 0% 10%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 30 8% 85%;
     --input: 30 8% 85%;
     --ring: 42 52% 54%;
-
     --radius: 0.25rem;
-
     --gold: 42 52% 54%;
     --gold-foreground: 0 0% 100%;
     --charcoal: 0 0% 10%;
     --offwhite: 30 14% 95%;
     --midgrey: 0 0% 42%;
-
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -57,15 +46,12 @@
   * {
     @apply border-border;
   }
-
   html {
     scroll-behavior: smooth;
   }
-
   body {
     @apply bg-background text-foreground font-body antialiased;
   }
-
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
@@ -75,7 +61,6 @@
   .text-balance {
     text-wrap: balance;
   }
-
   .gold-gradient {
     background: linear-gradient(135deg, hsl(42 52% 54%), hsl(42 52% 64%));
   }
@@ -83,76 +68,33 @@
 
 /* Scroll reveal animations */
 @keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+  from { opacity: 0; transform: translateY(20px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
-
 @keyframes reveal-left {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
+  from { opacity: 0; transform: translateX(-20px); filter: blur(4px); }
+  to { opacity: 1; transform: translateX(0); filter: blur(0); }
 }
-
 @keyframes reveal-right {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-    filter: blur(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
+  from { opacity: 0; transform: translateX(20px); filter: blur(4px); }
+  to { opacity: 1; transform: translateX(0); filter: blur(0); }
 }
-
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-.animate-reveal-up {
-  animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-reveal-left {
-  animation: reveal-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-reveal-right {
-  animation: reveal-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
-}
-
-.animate-slide-down {
-  animation: slide-down 0.3s ease-out forwards;
-}
+.animate-reveal-up { animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-reveal-left { animation: reveal-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-reveal-right { animation: reveal-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
+.animate-slide-down { animation: slide-down 0.3s ease-out forwards; }
+.animate-blink { animation: blink 1s step-end infinite; }
