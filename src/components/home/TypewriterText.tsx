@@ -10,8 +10,8 @@ interface TypewriterTextProps {
 
 const TypewriterText = ({
   phrases,
-  typingSpeed = 1000,
-  erasingSpeed = 700,
+  typingSpeed = 150,
+  erasingSpeed = 80,
   pauseDuration = 2000,
   className = '',
 }: TypewriterTextProps) => {
