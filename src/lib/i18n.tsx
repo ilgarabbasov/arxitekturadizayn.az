@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 export type Language = 'az' | 'ru' | 'en';
 
@@ -12,15 +12,14 @@ const translations = {
       contact: 'Əlaqə',
       articles: 'Məqalələr',
       servicesDropdown: { projects: 'Layihələr' },
-      projectsDropdown: {
-        urban: 'Şəhərsalma',
-        residential: 'Yaşayış',
-        nonResidential: 'Qeyri-yaşayış',
-        industrial: 'Sənaye',
-      },
+      projectsDropdown: { urban: 'Şəhərsalma', residential: 'Yaşayış', nonResidential: 'Qeyri-yaşayış', industrial: 'Sənaye' },
     },
     hero: {
-      title: 'Arxitektura və Dizaynda Yeni Standart',
+      phrases: [
+        'Arxitektura və Dizaynda Yeni Standart',
+        'Fikirlərini Formaya Çeviririk',
+        'Gələcəyin Məkanlarını Layihələndiririk',
+      ] as readonly string[],
       subtitle: 'Şəhərsalma, yaşayış və kommersiya layihələrinin peşəkar icraçısı',
       cta1: 'Layihələrə bax',
       cta2: 'Bizimlə əlaqə',
@@ -29,7 +28,7 @@ const translations = {
       experience: 'il təcrübə',
       projectsDone: 'layihə',
       awards: 'mükafat',
-      description: 'Arxitektura & Dizayn şirkəti 2008-ci ildən bəri Azərbaycanda memarlıq və dizayn sahəsində fəaliyyət göstərir. Peşəkar komandamız müasir memarlıq həlləri ilə müştərilərimizin bütün ehtiyaclarını qarşılayır.',
+      description: 'Arxitektura & Dizayn şirkəti 2025-ci ildə Azərbaycanda memarlıq və dizayn sahəsində yeni standartlar yaratmaq məqsədilə təsis olunmuşdur. Peşəkar komandamız müasir memarlıq həlləri ilə müştərilərimizin bütün ehtiyaclarını qarşılayır.',
       link: 'Daha ətraflı',
     },
     services: {
@@ -49,14 +48,27 @@ const translations = {
       urban: 'Şəhərsalma',
       industrial: 'Sənaye',
       viewAll: 'Bütün layihələrə bax',
+      sampleNote: 'Nümunəvi layihə',
     },
     clients: {
       title: 'Sifarişçilər',
-      trust: 'Azərbaycanın aparıcı şirkətləri və dövlət qurumları ilə əməkdaşlıq edirik',
+      trust: 'Etibarlı tərəfdaşlarımızla birlikdə uğurlu layihələr həyata keçiririk',
+    },
+    clientsPage: {
+      title: 'Sifarişçilərimiz',
+      trustStatement: 'Biz müştərilərimizlə uzunmüddətli və etibarlı əlaqələr qururuq. Hər bir layihədə müştərimizin vizyonunu anlamaq və onu ən yüksək keyfiyyətlə həyata keçirmək əsas məqsədimizdir.',
+      becomeClient: 'Siz də sifarişçimiz olun',
     },
     articlesPrev: {
       title: 'Məqalələr',
       readMore: 'Daha ətraflı',
+    },
+    articleDetail: {
+      author: 'Redaksiya',
+      otherArticles: 'Digər məqalələr',
+      backToArticles: '← Məqalələrə qayıt',
+      breadcrumbHome: 'Ana səhifə',
+      breadcrumbArticles: 'Məqalələr',
     },
     cta: {
       title: 'Layihənizi birlikdə həyata keçirək',
@@ -66,45 +78,38 @@ const translations = {
       tagline: 'Memarlıq və dizaynda mükəmməllik',
       quickLinks: 'Keçidlər',
       contactInfo: 'Əlaqə',
-      address: 'Bakı şəhəri, Nəsimi rayonu, Ü.Hacıbəyli küç. 27',
-      phone: '+994 12 498 00 00',
+      address: 'Sumqayıt şəhəri, Azərbaycan',
+      phone: '+994 99 311 13 89',
       email: 'info@arxitekturadizayn.az',
-      copyright: '© 2025 Arxitektura & Dizayn. Bütün hüquqlar qorunur.',
+      copyright: '© 2026 Arxitektura & Dizayn. Bütün hüquqlar qorunur.',
     },
     contact: {
       title: 'Əlaqə',
       form: {
-        name: 'Ad',
-        surname: 'Soyad',
+        name: 'Ad Soyad',
         email: 'Email',
         phone: 'Telefon',
-        subject: 'Mövzu',
         message: 'Mesaj',
         projectType: 'Layihə növü',
-        submit: 'Göndər',
+        submit: 'Müraciət göndər',
         selectType: 'Layihə növünü seçin',
-        types: ['Yaşayış', 'Qeyri-yaşayış', 'Şəhərsalma', 'Sənaye', 'İnteryer', 'Digər'],
+        types: ['Yaşayış', 'Qeyri-yaşayış', 'Şəhərsalma', 'Sənaye', 'Digər'],
+        success: 'Müraciətiniz qəbul edildi! Tezliklə sizinlə əlaqə saxlayacağıq.',
       },
     },
     about: {
       pageTitle: 'Haqqımızda',
-      story: 'Arxitektura & Dizayn şirkəti 2008-ci ildə təsis olunub və Azərbaycanın memarlıq mənzərəsini formalaşdırmaqda aparıcı rol oynayır. Biz hər bir layihəyə yaradıcı yanaşma və peşəkarlıqla yanaşırıq.',
-      storyP2: 'Komandamız təcrübəli memarlar, mühəndislər və dizaynerlərdən ibarətdir. Biz müasir texnologiyalardan istifadə edərək, funksional və estetik cəhətdən mükəmməl layihələr yaradırıq.',
+      heroTitle: 'Bir Vizyonun Hekayəsi',
+      storyTitle: '2025: Yeni Bir Başlanğıc',
+      story: 'Arxitektura & Dizayn 2025-ci ildə Cabar Həşimovun rəhbərliyi altında, Azərbaycanda memarlıq və dizayn sahəsində yeni standartlar yaratmaq məqsədilə Sumqayıtda əsası qoyulmuşdur. Şirkət qurulduğu gündən etibarən müasir memarlıq həllərini milli estetika ilə birləşdirərək unikal layihələr yaratmağa çalışır.',
       team: 'Komandamız',
       timeline: 'Tariximiz',
-      values: 'Dəyərlərimiz',
-      valuesItems: [
-        { title: 'Keyfiyyət', desc: 'Hər bir layihədə ən yüksək keyfiyyət standartlarına riayət edirik' },
-        { title: 'İnnovasiya', desc: 'Müasir texnologiya və yaradıcı həllərlə fərqlənrik' },
-        { title: 'Etibarlılıq', desc: 'Müştərilərimizlə uzunmüddətli və etibarlı əlaqələr qururuq' },
-      ],
+      mission: { title: 'Missiya', desc: 'Hər layihədə funksionallığı estetika ilə birləşdirmək', icon: '🏛️' },
+      vision: { title: 'Vizyon', desc: 'Azərbaycanda memarlıq dizaynının lideri olmaq', icon: '🔭' },
+      valuesCard: { title: 'Dəyərlər', desc: 'Keyfiyyət, Yaradıcılıq, Etibarlılıq', icon: '💎' },
     },
-    projects: {
-      pageTitle: 'Layihələr',
-    },
-    articles: {
-      pageTitle: 'Məqalələr',
-    },
+    projects: { pageTitle: 'Layihələr' },
+    articles: { pageTitle: 'Məqalələr' },
   },
   ru: {
     nav: {
@@ -115,15 +120,14 @@ const translations = {
       contact: 'Контакт',
       articles: 'Статьи',
       servicesDropdown: { projects: 'Проекты' },
-      projectsDropdown: {
-        urban: 'Градостроительство',
-        residential: 'Жилые',
-        nonResidential: 'Нежилые',
-        industrial: 'Промышленные',
-      },
+      projectsDropdown: { urban: 'Градостроительство', residential: 'Жилые', nonResidential: 'Нежилые', industrial: 'Промышленные' },
     },
     hero: {
-      title: 'Новый Стандарт в Архитектуре и Дизайне',
+      phrases: [
+        'Новый стандарт в архитектуре и дизайне',
+        'Превращаем идеи в форму',
+        'Проектируем пространства будущего',
+      ] as readonly string[],
       subtitle: 'Профессиональное выполнение градостроительных, жилых и коммерческих проектов',
       cta1: 'Смотреть проекты',
       cta2: 'Связаться с нами',
@@ -132,16 +136,16 @@ const translations = {
       experience: 'лет опыта',
       projectsDone: 'проектов',
       awards: 'наград',
-      description: 'Компания Архитектура & Дизайн работает в сфере архитектуры и дизайна в Азербайджане с 2008 года. Наша профессиональная команда удовлетворяет все потребности клиентов современными архитектурными решениями.',
+      description: 'Компания Архитектура & Дизайн основана в 2025 году с целью создания новых стандартов в сфере архитектуры и дизайна в Азербайджане.',
       link: 'Подробнее',
     },
     services: {
       title: 'Услуги',
       items: [
-        { title: 'Архитектурный Дизайн', desc: 'Разработка функциональных и эстетичных проектов с современными архитектурными решениями' },
-        { title: 'Дизайн Интерьера', desc: 'Профессиональное оформление жилых и коммерческих помещений' },
-        { title: 'Градостроительство', desc: 'Планирование и развитие городской инфраструктуры' },
-        { title: 'Управление Проектами', desc: 'Профессиональное управление проектами от начала до конца' },
+        { title: 'Архитектурный Дизайн', desc: 'Разработка функциональных и эстетичных проектов' },
+        { title: 'Дизайн Интерьера', desc: 'Профессиональное оформление помещений' },
+        { title: 'Градостроительство', desc: 'Планирование городской инфраструктуры' },
+        { title: 'Управление Проектами', desc: 'Управление проектами от начала до конца' },
       ],
     },
     featuredProjects: {
@@ -152,62 +156,62 @@ const translations = {
       urban: 'Градостроительство',
       industrial: 'Промышленные',
       viewAll: 'Смотреть все проекты',
+      sampleNote: 'Образцовый проект',
     },
     clients: {
       title: 'Заказчики',
-      trust: 'Мы сотрудничаем с ведущими компаниями и государственными учреждениями Азербайджана',
+      trust: 'Мы реализуем успешные проекты совместно с надёжными партнёрами',
     },
-    articlesPrev: {
-      title: 'Статьи',
-      readMore: 'Подробнее',
+    clientsPage: {
+      title: 'Наши заказчики',
+      trustStatement: 'Мы строим долгосрочные и надёжные отношения с нашими клиентами.',
+      becomeClient: 'Станьте нашим заказчиком',
     },
-    cta: {
-      title: 'Давайте реализуем ваш проект вместе',
-      button: 'Обратиться',
+    articlesPrev: { title: 'Статьи', readMore: 'Подробнее' },
+    articleDetail: {
+      author: 'Редакция',
+      otherArticles: 'Другие статьи',
+      backToArticles: '← Вернуться к статьям',
+      breadcrumbHome: 'Главная',
+      breadcrumbArticles: 'Статьи',
     },
+    cta: { title: 'Давайте реализуем ваш проект вместе', button: 'Обратиться' },
     footer: {
       tagline: 'Совершенство в архитектуре и дизайне',
       quickLinks: 'Ссылки',
       contactInfo: 'Контакт',
-      address: 'г. Баку, Насиминский район, ул. У.Гаджибейли 27',
-      phone: '+994 12 498 00 00',
+      address: 'г. Сумгайыт, Азербайджан',
+      phone: '+994 99 311 13 89',
       email: 'info@arxitekturadizayn.az',
-      copyright: '© 2025 Архитектура & Дизайн. Все права защищены.',
+      copyright: '© 2026 Архитектура & Дизайн. Все права защищены.',
     },
     contact: {
       title: 'Контакт',
       form: {
-        name: 'Имя',
-        surname: 'Фамилия',
+        name: 'Имя Фамилия',
         email: 'Email',
         phone: 'Телефон',
-        subject: 'Тема',
         message: 'Сообщение',
         projectType: 'Тип проекта',
-        submit: 'Отправить',
+        submit: 'Отправить заявку',
         selectType: 'Выберите тип проекта',
-        types: ['Жилой', 'Нежилой', 'Градостроительство', 'Промышленный', 'Интерьер', 'Другое'],
+        types: ['Жилой', 'Нежилой', 'Градостроительство', 'Промышленный', 'Другое'],
+        success: 'Ваша заявка принята! Мы свяжемся с вами в ближайшее время.',
       },
     },
     about: {
       pageTitle: 'О нас',
-      story: 'Компания Архитектура & Дизайн была основана в 2008 году и играет ведущую роль в формировании архитектурного ландшафта Азербайджана.',
-      storyP2: 'Наша команда состоит из опытных архитекторов, инженеров и дизайнеров. Мы создаём функционально и эстетически безупречные проекты с использованием современных технологий.',
+      heroTitle: 'История одного видения',
+      storyTitle: '2025: Новое начало',
+      story: 'Архитектура & Дизайн была основана в 2025 году под руководством Джабара Хашимова с целью создания новых стандартов в архитектуре и дизайне в Азербайджане.',
       team: 'Наша команда',
       timeline: 'Наша история',
-      values: 'Наши ценности',
-      valuesItems: [
-        { title: 'Качество', desc: 'Мы соблюдаем высочайшие стандарты качества в каждом проекте' },
-        { title: 'Инновации', desc: 'Отличаемся современными технологиями и креативными решениями' },
-        { title: 'Надёжность', desc: 'Строим долгосрочные и надёжные отношения с клиентами' },
-      ],
+      mission: { title: 'Миссия', desc: 'Объединять функциональность и эстетику в каждом проекте', icon: '🏛️' },
+      vision: { title: 'Видение', desc: 'Стать лидером архитектурного дизайна в Азербайджане', icon: '🔭' },
+      valuesCard: { title: 'Ценности', desc: 'Качество, Креативность, Надёжность', icon: '💎' },
     },
-    projects: {
-      pageTitle: 'Проекты',
-    },
-    articles: {
-      pageTitle: 'Статьи',
-    },
+    projects: { pageTitle: 'Проекты' },
+    articles: { pageTitle: 'Статьи' },
   },
   en: {
     nav: {
@@ -218,15 +222,14 @@ const translations = {
       contact: 'Contact',
       articles: 'Articles',
       servicesDropdown: { projects: 'Projects' },
-      projectsDropdown: {
-        urban: 'Urban Planning',
-        residential: 'Residential',
-        nonResidential: 'Non-Residential',
-        industrial: 'Industrial',
-      },
+      projectsDropdown: { urban: 'Urban Planning', residential: 'Residential', nonResidential: 'Non-Residential', industrial: 'Industrial' },
     },
     hero: {
-      title: 'A New Standard in Architecture & Design',
+      phrases: [
+        'A New Standard in Architecture & Design',
+        'Turning Ideas into Form',
+        'Designing Spaces of the Future',
+      ] as readonly string[],
       subtitle: 'Professional execution of urban planning, residential and commercial projects',
       cta1: 'View Projects',
       cta2: 'Contact Us',
@@ -235,15 +238,15 @@ const translations = {
       experience: 'years of experience',
       projectsDone: 'projects',
       awards: 'awards',
-      description: 'Architecture & Design has been operating in the field of architecture and design in Azerbaijan since 2008. Our professional team meets all customer needs with modern architectural solutions.',
+      description: 'Architecture & Design was founded in 2025 with the goal of creating new standards in architecture and design in Azerbaijan.',
       link: 'Learn more',
     },
     services: {
       title: 'Services',
       items: [
-        { title: 'Architectural Design', desc: 'Development of functional and aesthetic projects with modern architectural solutions' },
-        { title: 'Interior Design', desc: 'Professional interior design of residential and commercial spaces' },
-        { title: 'Urban Planning', desc: 'City infrastructure planning and development projects' },
+        { title: 'Architectural Design', desc: 'Development of functional and aesthetic projects' },
+        { title: 'Interior Design', desc: 'Professional interior design of spaces' },
+        { title: 'Urban Planning', desc: 'City infrastructure planning and development' },
         { title: 'Project Management', desc: 'Professional project management from start to finish' },
       ],
     },
@@ -255,62 +258,62 @@ const translations = {
       urban: 'Urban Planning',
       industrial: 'Industrial',
       viewAll: 'View all projects',
+      sampleNote: 'Sample project',
     },
     clients: {
       title: 'Clients',
-      trust: 'We collaborate with leading companies and government institutions of Azerbaijan',
+      trust: 'We deliver successful projects with our trusted partners',
     },
-    articlesPrev: {
-      title: 'Articles',
-      readMore: 'Read more',
+    clientsPage: {
+      title: 'Our Clients',
+      trustStatement: 'We build long-term and reliable relationships with our clients.',
+      becomeClient: 'Become our client',
     },
-    cta: {
-      title: "Let's bring your project to life together",
-      button: 'Get in touch',
+    articlesPrev: { title: 'Articles', readMore: 'Read more' },
+    articleDetail: {
+      author: 'Editorial',
+      otherArticles: 'Other articles',
+      backToArticles: '← Back to articles',
+      breadcrumbHome: 'Home',
+      breadcrumbArticles: 'Articles',
     },
+    cta: { title: "Let's bring your project to life together", button: 'Get in touch' },
     footer: {
       tagline: 'Excellence in architecture and design',
       quickLinks: 'Quick Links',
       contactInfo: 'Contact',
-      address: 'Baku, Nasimi district, U.Hajibeyov str. 27',
-      phone: '+994 12 498 00 00',
+      address: 'Sumgayit, Azerbaijan',
+      phone: '+994 99 311 13 89',
       email: 'info@arxitekturadizayn.az',
-      copyright: '© 2025 Architecture & Design. All rights reserved.',
+      copyright: '© 2026 Architecture & Design. All rights reserved.',
     },
     contact: {
       title: 'Contact',
       form: {
-        name: 'First Name',
-        surname: 'Last Name',
+        name: 'Full Name',
         email: 'Email',
         phone: 'Phone',
-        subject: 'Subject',
         message: 'Message',
         projectType: 'Project Type',
-        submit: 'Submit',
+        submit: 'Submit Inquiry',
         selectType: 'Select project type',
-        types: ['Residential', 'Non-Residential', 'Urban Planning', 'Industrial', 'Interior', 'Other'],
+        types: ['Residential', 'Non-Residential', 'Urban Planning', 'Industrial', 'Other'],
+        success: 'Your inquiry has been received! We will contact you shortly.',
       },
     },
     about: {
       pageTitle: 'About Us',
-      story: 'Architecture & Design was founded in 2008 and plays a leading role in shaping the architectural landscape of Azerbaijan.',
-      storyP2: 'Our team consists of experienced architects, engineers and designers. We create functionally and aesthetically perfect projects using modern technologies.',
+      heroTitle: 'The Story of a Vision',
+      storyTitle: '2025: A New Beginning',
+      story: 'Architecture & Design was founded in 2025 under the leadership of Jabar Hashimov to create new standards in architecture and design in Azerbaijan.',
       team: 'Our Team',
       timeline: 'Our History',
-      values: 'Our Values',
-      valuesItems: [
-        { title: 'Quality', desc: 'We adhere to the highest quality standards in every project' },
-        { title: 'Innovation', desc: 'We stand out with modern technology and creative solutions' },
-        { title: 'Reliability', desc: 'We build long-term and reliable relationships with our clients' },
-      ],
+      mission: { title: 'Mission', desc: 'To unite functionality and aesthetics in every project', icon: '🏛️' },
+      vision: { title: 'Vision', desc: 'To become the leader of architectural design in Azerbaijan', icon: '🔭' },
+      valuesCard: { title: 'Values', desc: 'Quality, Creativity, Reliability', icon: '💎' },
     },
-    projects: {
-      pageTitle: 'Projects',
-    },
-    articles: {
-      pageTitle: 'Articles',
-    },
+    projects: { pageTitle: 'Projects' },
+    articles: { pageTitle: 'Articles' },
   },
 } as const;
 
@@ -331,9 +334,10 @@ const LanguageContext = createContext<LanguageContextType>({
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [lang, setLang] = useState<Language>('az');
 
-  // Set lang attribute on <html> for proper CSS text-transform (i → İ in Azerbaijani/Turkish)
-  const langMap: Record<Language, string> = { az: 'az', ru: 'ru', en: 'en' };
-  document.documentElement.lang = langMap[lang];
+  useEffect(() => {
+    const langMap: Record<Language, string> = { az: 'az', ru: 'ru', en: 'en' };
+    document.documentElement.lang = langMap[lang];
+  }, [lang]);
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] as unknown as Translations }}>

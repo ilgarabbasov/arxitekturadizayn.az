@@ -1,7 +1,10 @@
 import { useLanguage } from '@/lib/i18n';
 import ScrollReveal from '../ScrollReveal';
 
-const clientNames = ['SOCAR', 'Azərenerji', 'Bakı Metropoliteni', 'AzerGold', 'Port of Baku', 'Azərbaycan Dəmir Yolları', 'ASAN Xidmət', 'Azersu'];
+const clients = [
+  { name: 'Vertex Development MMC' },
+  { name: 'Panorama İnşaat Şirkəti' },
+];
 
 const ClientsSection = () => {
   const { t } = useLanguage();
@@ -13,15 +16,11 @@ const ClientsSection = () => {
           <h2 className="font-heading text-3xl md:text-5xl text-center mb-4">{t.clients.title}</h2>
           <p className="text-midgrey text-center mb-16 max-w-xl mx-auto">{t.clients.trust}</p>
         </ScrollReveal>
-
         <ScrollReveal delay={200}>
-          <div className="flex flex-wrap justify-center items-center gap-12">
-            {clientNames.map((name) => (
-              <div
-                key={name}
-                className="text-midgrey/40 hover:text-charcoal text-lg font-heading tracking-wider transition-colors cursor-default"
-              >
-                {name}
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {clients.map((c) => (
+              <div key={c.name} className="bg-charcoal text-offwhite px-10 py-6 font-heading text-xl tracking-wider">
+                {c.name}
               </div>
             ))}
           </div>

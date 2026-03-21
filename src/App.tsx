@@ -8,7 +8,9 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Articles from "./pages/Articles";
+import ArticleDetail from "./pages/ArticleDetail";
 import Contact from "./pages/Contact";
+import Clients from "./pages/Clients";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +27,9 @@ const App = () => (
             <Route path="/haqqimizda" element={<About />} />
             <Route path="/layiheler" element={<Projects />} />
             <Route path="/meqaleler" element={<Articles />} />
+            <Route path="/meqaleler/:slug" element={<ArticleDetail />} />
             <Route path="/elaqe" element={<Contact />} />
+            <Route path="/sifarisciler" element={<Clients />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

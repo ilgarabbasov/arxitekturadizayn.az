@@ -7,9 +7,9 @@ const AboutPreview = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { num: '15+', label: t.aboutPreview.experience },
-    { num: '200+', label: t.aboutPreview.projectsDone },
-    { num: '50+', label: t.aboutPreview.awards },
+    { num: '1+', label: t.aboutPreview.experience },
+    { num: '10+', label: t.aboutPreview.projectsDone },
+    { num: '2+', label: t.aboutPreview.awards },
   ];
 
   return (
@@ -26,15 +26,9 @@ const AboutPreview = () => {
               ))}
             </div>
           </ScrollReveal>
-
           <ScrollReveal direction="right" delay={200}>
-            <p className="text-midgrey leading-relaxed text-lg">
-              {t.aboutPreview.description}
-            </p>
-            <Link
-              to="/haqqimizda"
-              className="inline-flex items-center gap-2 text-gold mt-6 text-sm uppercase tracking-wide hover:gap-3 transition-all"
-            >
+            <p className="text-midgrey leading-relaxed text-lg">{t.aboutPreview.description}</p>
+            <Link to="/haqqimizda" className="inline-flex items-center gap-2 text-gold mt-6 text-sm uppercase tracking-wide hover:gap-3 transition-all">
               {t.aboutPreview.link} <ArrowRight className="w-4 h-4" />
             </Link>
           </ScrollReveal>
