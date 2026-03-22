@@ -15,6 +15,8 @@ const translations = {
       projectsDropdown: { urban: 'Şəhərsalma', residential: 'Yaşayış', nonResidential: 'Qeyri-yaşayış', industrial: 'Sənaye' },
     },
     hero: {
+      heroLine1: 'ARXİTEKTURA VƏ DİZAYNDA',
+      heroLine2: 'YENİ STANDARTLAR',
       phrases: [
         'Arxitektura və Dizaynda Yeni Standart',
         'Fikirlərini Formaya Çeviririk',
