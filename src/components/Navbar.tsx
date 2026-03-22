@@ -40,6 +40,7 @@ const Navbar = () => {
 
           {/* Desktop */}
           <div className={`hidden lg:flex items-center gap-8 ${textColor}`}>
+            <Link to="/" className="text-sm tracking-wide uppercase hover:text-gold transition-colors">{t.nav.home}</Link>
             <Link to="/haqqimizda" className="text-sm tracking-wide uppercase hover:text-gold transition-colors">{t.nav.about}</Link>
 
             <div className="relative group" onMouseEnter={() => setActiveDropdown('services')} onMouseLeave={() => setActiveDropdown(null)}>
