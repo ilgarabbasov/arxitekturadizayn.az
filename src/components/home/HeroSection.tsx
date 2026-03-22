@@ -62,7 +62,7 @@ const HeroSection = () => {
               stroke="hsl(var(--offwhite))"
               strokeWidth="1.2"
             >
-              ARXİTEKTURA VƏ DİZAYNDA
+              {t.hero.heroLine1}
             </text>
 
             {/* Line 2: YENİ STANDARTLAR */}
@@ -78,7 +78,7 @@ const HeroSection = () => {
               stroke="hsl(var(--offwhite))"
               strokeWidth="1.5"
             >
-              YENİ STANDARTLAR
+              {t.hero.heroLine2}
             </text>
 
             {/* Bottom dimension line */}

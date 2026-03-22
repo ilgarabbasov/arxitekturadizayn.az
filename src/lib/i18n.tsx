@@ -15,6 +15,8 @@ const translations = {
       projectsDropdown: { urban: 'Şəhərsalma', residential: 'Yaşayış', nonResidential: 'Qeyri-yaşayış', industrial: 'Sənaye' },
     },
     hero: {
+      heroLine1: 'ARXİTEKTURA VƏ DİZAYNDA',
+      heroLine2: 'YENİ STANDARTLAR',
       phrases: [
         'Arxitektura və Dizaynda Yeni Standart',
         'Fikirlərini Formaya Çeviririk',
@@ -123,6 +125,8 @@ const translations = {
       projectsDropdown: { urban: 'Градостроительство', residential: 'Жилые', nonResidential: 'Нежилые', industrial: 'Промышленные' },
     },
     hero: {
+      heroLine1: 'АРХИТЕКТУРА И ДИЗАЙН',
+      heroLine2: 'НОВЫЕ СТАНДАРТЫ',
       phrases: [
         'Новый стандарт в архитектуре и дизайне',
         'Превращаем идеи в форму',
@@ -225,6 +229,8 @@ const translations = {
       projectsDropdown: { urban: 'Urban Planning', residential: 'Residential', nonResidential: 'Non-Residential', industrial: 'Industrial' },
     },
     hero: {
+      heroLine1: 'ARCHITECTURE & DESIGN',
+      heroLine2: 'NEW STANDARDS',
       phrases: [
         'A New Standard in Architecture & Design',
         'Turning Ideas into Form',
