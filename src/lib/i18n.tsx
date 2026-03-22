@@ -229,6 +229,8 @@ const translations = {
       projectsDropdown: { urban: 'Urban Planning', residential: 'Residential', nonResidential: 'Non-Residential', industrial: 'Industrial' },
     },
     hero: {
+      heroLine1: 'ARCHITECTURE & DESIGN',
+      heroLine2: 'NEW STANDARDS',
       phrases: [
         'A New Standard in Architecture & Design',
         'Turning Ideas into Form',

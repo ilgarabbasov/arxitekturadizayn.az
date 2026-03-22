@@ -78,7 +78,7 @@ const HeroSection = () => {
               stroke="hsl(var(--offwhite))"
               strokeWidth="1.5"
             >
-              YENİ STANDARTLAR
+              {t.hero.heroLine2}
             </text>
 
             {/* Bottom dimension line */}
