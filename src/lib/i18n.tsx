@@ -5,6 +5,7 @@ export type Language = 'az' | 'ru' | 'en';
 const translations = {
   az: {
     nav: {
+      home: 'Ana səhifə',
       about: 'Haqqımızda',
       services: 'Xidmətlər',
       projects: 'Layihələr',
