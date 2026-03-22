@@ -221,6 +221,7 @@ const translations = {
   },
   en: {
     nav: {
+      home: 'Home',
       about: 'About',
       services: 'Services',
       projects: 'Projects',
