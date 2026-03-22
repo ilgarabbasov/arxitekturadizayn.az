@@ -125,6 +125,8 @@ const translations = {
       projectsDropdown: { urban: 'Градостроительство', residential: 'Жилые', nonResidential: 'Нежилые', industrial: 'Промышленные' },
     },
     hero: {
+      heroLine1: 'АРХИТЕКТУРА И ДИЗАЙН',
+      heroLine2: 'НОВЫЕ СТАНДАРТЫ',
       phrases: [
         'Новый стандарт в архитектуре и дизайне',
         'Превращаем идеи в форму',
