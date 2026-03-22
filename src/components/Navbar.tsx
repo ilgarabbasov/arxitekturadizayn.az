@@ -40,6 +40,7 @@ const Navbar = () => {
 
           {/* Desktop */}
           <div className={`hidden lg:flex items-center gap-8 ${textColor}`}>
+            <Link to="/" className="text-sm tracking-wide uppercase hover:text-gold transition-colors">{t.nav.home}</Link>
             <Link to="/haqqimizda" className="text-sm tracking-wide uppercase hover:text-gold transition-colors">{t.nav.about}</Link>
 
             <div className="relative group" onMouseEnter={() => setActiveDropdown('services')} onMouseLeave={() => setActiveDropdown(null)}>
@@ -93,6 +94,7 @@ const Navbar = () => {
         {mobileOpen && (
           <div className="lg:hidden pb-6 animate-slide-down">
             <div className="flex flex-col gap-4 text-charcoal">
+              <Link to="/" className="text-sm tracking-wide uppercase">{t.nav.home}</Link>
               <Link to="/haqqimizda" className="text-sm tracking-wide uppercase">{t.nav.about}</Link>
               <button onClick={() => setActiveDropdown(activeDropdown === 'services-m' ? null : 'services-m')} className="text-sm tracking-wide uppercase flex items-center gap-1 text-left">
                 {t.nav.services} <ChevronDown className="w-3 h-3" />
