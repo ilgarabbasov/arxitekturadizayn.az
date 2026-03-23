@@ -247,7 +247,7 @@ const translations = {
       experience: 'years of experience',
       projectsDone: 'projects',
       awards: 'awards',
-      description: 'Architecture & Design was founded in 2025 with the goal of creating new standards in architecture and design in Azerbaijan.',
+      description: 'Architecture & Design LLC was founded in 2025 with the goal of creating new standards in architecture and design in Azerbaijan.',
       link: 'Learn more',
     },
     services: {
