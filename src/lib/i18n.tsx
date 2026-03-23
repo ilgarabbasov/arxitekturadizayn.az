@@ -294,7 +294,7 @@ const translations = {
       address: 'Sumgayit, Azerbaijan',
       phone: '+994 99 311 13 89',
       email: 'info@arxitekturadizayn.az',
-      copyright: '© 2026 Architecture & Design. All rights reserved.',
+      copyright: '© 2026 Architecture & Design LLC. All rights reserved.',
     },
     contact: {
       title: 'Contact',
