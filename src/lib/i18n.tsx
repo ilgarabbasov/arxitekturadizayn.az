@@ -189,7 +189,7 @@ const translations = {
       address: 'г. Сумгайыт, Азербайджан',
       phone: '+994 99 311 13 89',
       email: 'info@arxitekturadizayn.az',
-      copyright: '© 2026 Архитектура & Дизайн. Все права защищены.',
+      copyright: '© 2026 Архитектура & Дизайн ООО. Все права защищены.',
     },
     contact: {
       title: 'Контакт',
