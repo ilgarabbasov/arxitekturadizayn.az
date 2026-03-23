@@ -84,7 +84,7 @@ const translations = {
       address: 'Sumqayıt şəhəri, Azərbaycan',
       phone: '+994 99 311 13 89',
       email: 'info@arxitekturadizayn.az',
-      copyright: '© 2026 Arxitektura & Dizayn. Bütün hüquqlar qorunur.',
+      copyright: '© 2026 Arxitektura & Dizayn MMC. Bütün hüquqlar qorunur.',
     },
     contact: {
       title: 'Əlaqə',
