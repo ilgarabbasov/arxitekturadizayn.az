@@ -314,7 +314,7 @@ const translations = {
       pageTitle: 'About Us',
       heroTitle: 'The Story of a Vision',
       storyTitle: '2025: A New Beginning',
-      story: 'Architecture & Design was founded in 2025 under the leadership of Jabar Hashimov to create new standards in architecture and design in Azerbaijan.',
+      story: 'Architecture & Design LLC was founded in 2025 under the leadership of Jabar Hashimov to create new standards in architecture and design in Azerbaijan.',
       team: 'Our Team',
       timeline: 'Our History',
       mission: { title: 'Mission', desc: 'To unite functionality and aesthetics in every project', icon: '🏛️' },

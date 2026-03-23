@@ -24,7 +24,7 @@ const Navbar = () => {
   }, [location]);
 
   const navBg = scrolled || !isHome || mobileOpen ? 'bg-offwhite/95 backdrop-blur-sm shadow-sm' : 'bg-transparent';
-  const textColor = scrolled || !isHome ? 'text-charcoal' : 'text-offwhite';
+  const textColor = scrolled || !isHome || mobileOpen ? 'text-charcoal' : 'text-offwhite';
 
   const langs: { code: Language; label: string }[] = [
     { code: 'az', label: 'AZ' },
