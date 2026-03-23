@@ -13,7 +13,7 @@ const HeroSection = () => {
         {/* Architectural Blueprint Heading */}
         <div className="mx-auto mb-8">
           <svg
-            viewBox="0 0 1000 220"
+            viewBox="-40 0 1080 220"
             className="w-full max-w-4xl mx-auto"
             xmlns="http://www.w3.org/2000/svg"
           >
