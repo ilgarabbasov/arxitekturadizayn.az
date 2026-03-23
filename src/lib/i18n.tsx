@@ -104,7 +104,7 @@ const translations = {
       pageTitle: 'Haqqımızda',
       heroTitle: 'Bir Vizyonun Hekayəsi',
       storyTitle: '2025: Yeni Bir Başlanğıc',
-      story: 'Arxitektura & Dizayn 2025-ci ildə Cabar Həşimovun rəhbərliyi altında, Azərbaycanda memarlıq və dizayn sahəsində yeni standartlar yaratmaq məqsədilə Sumqayıtda əsası qoyulmuşdur. Şirkət qurulduğu gündən etibarən müasir memarlıq həllərini milli estetika ilə birləşdirərək unikal layihələr yaratmağa çalışır.',
+      story: 'Arxitektura & Dizayn MMC şirkəti 2025-ci ildə Cabar Həşimovun rəhbərliyi altında, Azərbaycanda memarlıq və dizayn sahəsində yeni standartlar yaratmaq məqsədilə Sumqayıtda əsası qoyulmuşdur. Şirkət qurulduğu gündən etibarən müasir memarlıq həllərini milli estetika ilə birləşdirərək unikal layihələr yaratmağa çalışır.',
       team: 'Komandamız',
       timeline: 'Tariximiz',
       mission: { title: 'Missiya', desc: 'Hər layihədə funksionallığı estetika ilə birləşdirmək', icon: '🏛️' },
