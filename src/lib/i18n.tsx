@@ -31,7 +31,7 @@ const translations = {
       experience: 'il təcrübə',
       projectsDone: 'layihə',
       awards: 'mükafat',
-      description: 'Arxitektura & Dizayn şirkəti 2025-ci ildə Azərbaycanda memarlıq və dizayn sahəsində yeni standartlar yaratmaq məqsədilə təsis olunmuşdur. Peşəkar komandamız müasir memarlıq həlləri ilə müştərilərimizin bütün ehtiyaclarını qarşılayır.',
+      description: 'Arxitektura & Dizayn MMC şirkəti 2025-ci ildə Azərbaycanda memarlıq və dizayn sahəsində yeni standartlar yaratmaq məqsədilə təsis olunmuşdur. Peşəkar komandamız müasir memarlıq həlləri ilə müştərilərimizin bütün ehtiyaclarını qarşılayır.',
       link: 'Daha ətraflı',
     },
     services: {
